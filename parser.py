@@ -4,7 +4,11 @@ import pandas as pd
 
 
 def parse_html_table(table):
-    """This function takes an html table as an input and outputs a pandas DataFrame"""
+    """This function takes an html table as an input and outputs a pandas DataFrame
+    
+    This function was cited from
+    https://srome.github.io/Parsing-HTML-Tables-in-Python-with-BeautifulSoup-and-pandas/
+    """
     n_columns = 0
     n_rows = 0
     column_names = []
