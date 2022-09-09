@@ -3,14 +3,19 @@ This is a Python package that contains helper functions to process PWS(Public Wa
 
 The package either allows users to enter a single **PWSID** or a `Pandas` dataframe with a column titled **PWSID**. In the former case, it returns a tuple of Latitude and Longitude, and in the latter case, it appends two columns, Latitude and Longitude, to the dataframe.
 
-## Required Packages
+# Table of Contents
+1. [Required Packages](#packages)
+2. [Documentation](#documentation)
+3. [Example](#example)
+
+## Required Packages <a name="packages"> </a>
 
 - `GeoPy` and `Pgeocode`
 - `Pandas`
 - `NumPy`
 - `BeautifulSoup`
 
-## Documentation
+## Documentation <a name="documentation"> </a>
 
 ### Parser
 
@@ -63,7 +68,7 @@ If this search fails, it will print out a message that there are still missing e
 In case all automatic searches failed, this function allows users to input addresses that are known to work on Nominatim(and OpenStreetMap). The function takes the dataframe(with missing entries) and a Python dictionary, having PWSIDs of missing entries as keys and working addresses as values. It then invokes the `latlonger` function to fill in the missing entries.
 
 
-## Example
+## Example <a name="example"> </a>
 
 Let us assume we want to get the Lat/Long data for water systems in the state of Alabama. 
 
@@ -88,7 +93,7 @@ The dataframe looks as such.
 ```python
 res = locator.frame_latlonger(df, "AL", "Alabama")
 ```
->> There are missing entries. Please fill spots with the postalcoder function
+> There are missing entries. Please fill spots with the postalcoder function
 
 This means that our initial search did not work for some PWSIDs
 
@@ -111,7 +116,7 @@ res = locator.postalcoder(df, missing, "AL")
 
 If there are no output messages, then the `pandas` dataframe is final and ready to go. If there are still missing entries, the function will output
 
->> There are still missing entries. Please fill manually with manual_filler
+> There are still missing entries. Please fill manually with manual_filler
 
 In this case, the user must find an address that Nominatim(OpenStreetMap) can process.
 
@@ -126,7 +131,7 @@ If the manually inputted addresses do indeed work, there should be no more missi
 res[res.Latitude.isnull()]
 ```
 
->> System Name	PWSID	Latitude	Longitude
+> System Name	PWSID	Latitude	Longitude
 
 If the user wishes to save this result, the user may do so using the `pandas.to_csv()` function.
 
