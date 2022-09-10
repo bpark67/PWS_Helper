@@ -1,3 +1,7 @@
+---
+bibliography: ref.bib
+---
+
 # PWS_Helper
 This is a Python package that contains helper functions to process PWS(Public Water Systems) IDs and extract Latitude and Longitude information. It uses the `BeautifulSoup` package to retrieve addresses from the [EPA Safe Drinking Water Information System](https://www.epa.gov/enviro/sdwis-search). Then, using `GeoPy` and **Nominatim**, a geocoding software used by OpenStreetMap, it extracts Lat/Long from said address. If the address search fails at the street level, the package by default refers to the city/county level address. If that search fails as well, the package offers another function that uses the postal code instead. If all of these steps fail, addresses can be manually entered and translated into Lat/Long.
 
