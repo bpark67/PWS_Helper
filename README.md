@@ -7,6 +7,7 @@ The package either allows users to enter a single **PWSID** or a `Pandas` datafr
 1. [Required Packages](#packages)
 2. [Documentation](#documentation)
 3. [Example](#example)
+4. [References](#reference)
 
 ## Required Packages <a name="packages"> </a>
 
@@ -138,3 +139,7 @@ If the user wishes to save this result, the user may do so using the `pandas.to_
 ```python
 res.to_csv("[FILE NAME].csv")
 ```
+
+## References <a name="reference"> </a>
+
+- https://srome.github.io/Parsing-HTML-Tables-in-Python-with-BeautifulSoup-and-pandas/
