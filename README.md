@@ -4,10 +4,14 @@ This is a Python package that contains helper functions to process PWS(Public Wa
 The package either allows users to enter a single **PWSID** or a `Pandas` dataframe with a column titled **PWSID**. In the former case, it returns a tuple of Latitude and Longitude, and in the latter case, it appends two columns, Latitude and Longitude, to the dataframe.
 
 # Table of Contents
-1. [Required Packages](#packages)
-2. [Documentation](#documentation)
-3. [Example](#example)
-4. [References](#reference)
+1. [Download](#download)
+2. [Required Packages](#packages)
+3. [Documentation](#documentation)
+4. [Example](#example)
+5. [References](#reference)
+
+## Download <a name="download"> </a>
+To download the files, click on this [link](https://github.com/bpark67/PWS_Helper/archive/refs/tags/v1.0.0-alpha.tar.gz).
 
 ## Required Packages <a name="packages"> </a>
 
