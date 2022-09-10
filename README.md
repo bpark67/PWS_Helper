@@ -3,7 +3,7 @@ bibliography: ref.bib
 ---
 
 # PWS_Helper
-This is a Python package that contains helper functions to process PWS(Public Water Systems) IDs and extract Latitude and Longitude information. It uses the `BeautifulSoup` package to retrieve addresses from the [EPA Safe Drinking Water Information System](https://www.epa.gov/enviro/sdwis-search). Then, using `GeoPy` and **Nominatim**, a geocoding software used by OpenStreetMap, it extracts Lat/Long from said address. If the address search fails at the street level, the package by default refers to the city/county level address. If that search fails as well, the package offers another function that uses the postal code instead. If all of these steps fail, addresses can be manually entered and translated into Lat/Long.
+This is a Python package that contains helper functions to process PWS(Public Water Systems) IDs and extract Latitude and Longitude information. It uses the `BeautifulSoup` package to retrieve addresses from the [EPA Safe Drinking Water Information System](https://www.epa.gov/enviro/sdwis-search). Then, using `GeoPy`[@GeoPy] and **Nominatim**, a geocoding software used by OpenStreetMap, it extracts Lat/Long from said address. If the address search fails at the street level, the package by default refers to the city/county level address. If that search fails as well, the package offers another function that uses the postal code instead. If all of these steps fail, addresses can be manually entered and translated into Lat/Long.
 
 The package either allows users to enter a single **PWSID** or a `Pandas` dataframe with a column titled **PWSID**. In the former case, it returns a tuple of Latitude and Longitude, and in the latter case, it appends two columns, Latitude and Longitude, to the dataframe.
 
@@ -147,3 +147,4 @@ res.to_csv("[FILE NAME].csv")
 ## References <a name="reference"> </a>
 
 - https://srome.github.io/Parsing-HTML-Tables-in-Python-with-BeautifulSoup-and-pandas/
+- https://www.epa.gov/enviro/sdwis-search
