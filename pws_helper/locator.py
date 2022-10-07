@@ -89,9 +89,10 @@ def frame_latlonger(frame, stateabb, statefull):
 
     else:
         for pws in missing.PWSID:
-            address_str[pws] = (
-                address[pws].iloc[2].str.replace(", " + stateabb, ", " + statefull)
-            )
+            if isinstance(address_str[pws], pd.DataFrame):
+                address_str[pws] = (
+                    address[pws].iloc[2].str.replace(", " + stateabb, ", " + statefull)
+                )
         converted = convert(address_str)
         with_location = frame.merge(converted, on="PWSID", how="left")
 
