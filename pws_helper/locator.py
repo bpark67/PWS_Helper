@@ -74,6 +74,8 @@ def frame_latlonger(frame, stateabb, statefull):
                     .iloc[2]
                     .str.replace(", " + stateabb, ", " + statefull)
                 )
+        else:
+            address_str[item] = None
 
     ## Get Initial Lat Long
     converted = convert(address_str)
