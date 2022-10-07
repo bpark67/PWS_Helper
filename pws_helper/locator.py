@@ -50,7 +50,7 @@ def frame_latlonger(frame, stateabb, statefull):
 
     ## Format Addresses so that P.O. Boxes are removed
     for item in address:
-        if address[item] != None:
+        if isinstance(address[item], pd.DataFrame):
             if (
                 address[item]
                 .iloc[1]
