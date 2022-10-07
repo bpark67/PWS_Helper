@@ -127,14 +127,15 @@ def postalcoder(frame, missing, stateabb):
     address = get_address(missing, stateabb)
 
     for pwsid in address:
-        postal_code = address[pwsid].iloc[2][0][-5:]
-        # Deal with 9 digit zip codes
-        if postal_code.startswith("-"):
-            postal_code = address[pwsid].iloc[2][0][-10:-5]
-        if len(postal_code) == 5 and postal_code.isdigit():
-            info = nomi.query_postal_code(postal_code)
-            frame.Latitude[frame.PWSID == pwsid] = info.latitude
-            frame.Longitude[frame.PWSID == pwsid] = info.longitude
+        if isinstance(address[pwsid], pd.DataFrame):
+            postal_code = address[pwsid].iloc[2][0][-5:]
+            # Deal with 9 digit zip codes
+            if postal_code.startswith("-"):
+                postal_code = address[pwsid].iloc[2][0][-10:-5]
+            if len(postal_code) == 5 and postal_code.isdigit():
+                info = nomi.query_postal_code(postal_code)
+                frame.Latitude[frame.PWSID == pwsid] = info.latitude
+                frame.Longitude[frame.PWSID == pwsid] = info.longitude
 
     still_missing = frame[frame.Latitude.isnull()]
 
