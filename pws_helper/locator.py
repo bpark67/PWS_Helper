@@ -50,27 +50,30 @@ def frame_latlonger(frame, stateabb, statefull):
 
     ## Format Addresses so that P.O. Boxes are removed
     for item in address:
-        if (
-            address[item]
-            .iloc[1]
-            .str.lower()
-            .str.replace(".", "")
-            .str.replace(" ", "")
-            .str.contains("po")[0]
-        ):
-            address_str[item] = (
-                address[item].iloc[2].str.replace(", " + stateabb, ", " + statefull)
-            )
-        elif (address[item].iloc[1] == "")[0]:
-            address_str[item] = (
-                address[item].iloc[2].str.replace(", " + stateabb, ", " + statefull)
-            )
-        else:
-            address_str[item] = (
-                address[item].iloc[1]
-                + ", "
-                + address[item].iloc[2].str.replace(", " + stateabb, ", " + statefull)
-            )
+        if address[item] != None:
+            if (
+                address[item]
+                .iloc[1]
+                .str.lower()
+                .str.replace(".", "")
+                .str.replace(" ", "")
+                .str.contains("po")[0]
+            ):
+                address_str[item] = (
+                    address[item].iloc[2].str.replace(", " + stateabb, ", " + statefull)
+                )
+            elif (address[item].iloc[1] == "")[0]:
+                address_str[item] = (
+                    address[item].iloc[2].str.replace(", " + stateabb, ", " + statefull)
+                )
+            else:
+                address_str[item] = (
+                    address[item].iloc[1]
+                    + ", "
+                    + address[item]
+                    .iloc[2]
+                    .str.replace(", " + stateabb, ", " + statefull)
+                )
 
     ## Get Initial Lat Long
     converted = convert(address_str)
